@@ -65,16 +65,22 @@
                             <div class="launch-card-col px-1">
                                 <div class="card p-3 mb-4 product-card">
                                     <img class="card-img-top card-img-bg" [src]="program.imageLink" height="200"
-                                        width="130" alt="Card image">
+                                        width="130" alt="Patch image not available">
                                     <div class="card-body">
                                         <p class="card-title product-title text-color-blue">{{program.name}}
                                             #{{program.id}}</p>
                                         <div class="card-text">
                                             <div class="d-flex flex-column">
                                                 <p class="product-title font-weight-bold mb-0">Mission Ids:&nbsp;</p>
-                                                <ul class="text-color-blue product-title font-weight-light">
-                                                    <li *ngFor="let id of program.missionId">{{id}}</li>
-                                                </ul>
+                                                <ng-container *ngIf="program.missionId.length; else noId">
+                                                    <ul class="text-color-blue product-title font-weight-light">
+                                                        <li *ngFor="let id of program.missionId">{{id}}</li>
+                                                    </ul>
+                                                </ng-container>
+                                               <ng-template #noId>
+                                                <p class="text-color-blue product-title  font-weight-light">
+                                                   N/A</p>
+                                               </ng-template>
                                             </div>
                                             <div class="d-flex">
                                                 <p class="product-title font-weight-bold">Launch Year:&nbsp;</p>

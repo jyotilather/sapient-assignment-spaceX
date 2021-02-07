@@ -137,12 +137,12 @@ export class SpaceXProgramsComponent implements OnInit {
     const programDetails = [] as IProgramDetail[];
     programRes.forEach((res) => {
       const productStatusObj = {
-        name: res.mission_name,
-        id: res.flight_number,
+        name: res.mission_name || 'N/A',
+        id: res.flight_number || 'N/A',
         missionId: res.mission_id,
-        launchYear: res.launch_year,
-        launchSuccess: res.launch_success,
-        landSuccess: res.rocket.first_stage.cores[0].land_success,
+        launchYear: res.launch_year || 'N/A',
+        launchSuccess: !isNull(res.launch_success) ? res.launch_success : 'N/A',
+        landSuccess: !isNull(res.rocket.first_stage.cores[0].land_success) ? res.rocket.first_stage.cores[0].land_success : 'N/A',
         imageLink: res.links.mission_patch_small
       } as IProgramDetail;
       programDetails.push(productStatusObj);
