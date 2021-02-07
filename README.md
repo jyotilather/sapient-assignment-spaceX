@@ -12,7 +12,7 @@
 4. Deployment on **Heroku** `https://space-launch-coding.herokuapp.com/`
 
 ## Pre Requisites to run the application locally
-1. Clone https://github.com/jyotilather/sapient-assignment-spaceX.git
+1. Clone https://github.com/jyotilather/sapient-assignment-spaceX
 2. Checkout branch `main`
 3. Run `npm install` for all dependencies
 4. To run the project `npm run dev:ssr`
