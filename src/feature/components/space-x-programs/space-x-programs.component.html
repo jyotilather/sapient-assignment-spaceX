@@ -1,0 +1,110 @@
+<div class="spaceX-wrapper container">
+    <div class="section-wrapper">
+        <h2>Space X Launch Program</h2>
+        <div>
+            <div class="section-body-wrapper d-flex flex-wrap">
+                <div class="px-1 filters-wrapper">
+                    <div class="card p-3 mb-4">
+                        <h6 class="card-title font-weight-bold">Filters</h6>
+                        <p class="card-text text-center filter-section">Launch Year</p>
+                        <hr>
+                        <div class="d-flex flex-wrap">
+                            <ng-container *ngFor="let launchYear of launchYearFilterOptions">
+                                <div class="w-50per text-center">
+                                    <button aria-label="Launch Year Filter Button" type="button"
+                                        class="btn btn-success filter-btn mb-2"
+                                        (click)="applyFilter(launchYear, 'launchYear')"
+                                        [ngClass]="{'button-active': selectedFilters.launchYear !== null && selectedFilters.launchYear === launchYear}">{{launchYear}}</button>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <p class="card-text text-center filter-section">Successful Launch</p>
+                        <hr>
+                        <div class="d-flex">
+                            <div class="w-50per text-center">
+                                <button aria-label="Launch True" type="button" class="btn btn-success filter-btn mb-2"
+                                    (click)="applyFilter(true, 'launchSuccess')"
+                                    [ngClass]="{'button-active': selectedFilters.launchSuccess !== null && selectedFilters.launchSuccess}">True</button>
+                            </div>
+                            <div class="w-50per text-center">
+                                <button aria-label="Launch False" type="button" class="btn btn-success filter-btn mb-2"
+                                    (click)="applyFilter(false, 'launchSuccess')"
+                                    [ngClass]="{'button-active': selectedFilters.launchSuccess !== null && !selectedFilters.launchSuccess}">False</button>
+                            </div>
+                        </div>
+                        <p class="card-text text-center filter-section">Successful Landing</p>
+                        <hr>
+                        <div class="d-flex">
+                            <div class="w-50per text-center">
+                                <button aria-label="Landing True" type="button" class="btn btn-success filter-btn mb-2"
+                                    (click)="applyFilter(true, 'landingSuccess')"
+                                    [ngClass]="{'button-active': selectedFilters.landingSuccess !== null && selectedFilters.landingSuccess}">True</button>
+                            </div>
+                            <div class="w-50per text-center">
+                                <button aria-label="Landing False" type="button" class="btn btn-success filter-btn mb-2"
+                                    (click)="applyFilter(false, 'landingSuccess')"
+                                    [ngClass]="{'button-active': selectedFilters.landingSuccess !== null && !selectedFilters.landingSuccess}">False</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngIf="loading" class="d-flex product-panel justify-content-center align-items-center bg-white">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <span class="ml-2">Loading...</span>
+                </div>
+                <div *ngIf="!loading && !programsList?.length"
+                    class="d-flex justify-content-center bg-white align-items-center product-panel">
+                    <h2>No Record found</h2>
+                </div>
+                <div *ngIf="programsList?.length" class="product-panel">
+                    <div class="d-flex flex-wrap">
+                        <ng-container *ngFor="let program of programsList">
+                            <div class="launch-card-col px-1">
+                                <div class="card p-3 mb-4 product-card">
+                                    <img class="card-img-top card-img-bg" [src]="program.imageLink" height="200"
+                                        width="130" alt="Card image">
+                                    <div class="card-body">
+                                        <p class="card-title product-title text-color-blue">{{program.name}}
+                                            #{{program.id}}</p>
+                                        <div class="card-text">
+                                            <div class="d-flex flex-column">
+                                                <p class="product-title font-weight-bold mb-0">Mission Ids:&nbsp;</p>
+                                                <ul class="text-color-blue product-title font-weight-light">
+                                                    <li *ngFor="let id of program.missionId">{{id}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="product-title font-weight-bold">Launch Year:&nbsp;</p>
+                                                <p class="text-color-blue product-title  font-weight-light">
+                                                    {{program.launchYear}}</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="product-title font-weight-bold">Successful Launch:&nbsp;
+                                                </p>
+                                                <p class="text-color-blue product-title  font-weight-light">
+                                                    {{program.launchSuccess}}</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <p class="product-title font-weight-bold">Successful Landing:&nbsp;
+                                                </p>
+                                                <p class="text-color-blue product-title  font-weight-light">
+                                                    {{program.landSuccess}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center footer-panel">
+            <h5 class="font-weight-bold"> Developed By:</h5>
+            <h5>Jyoti Lather</h5>
+        </div>
+    </div>
+</div>

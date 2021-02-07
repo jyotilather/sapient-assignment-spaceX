@@ -1,0 +1,137 @@
+@import '../../constants/constants.less';
+
+.spaceX-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 100vh;
+    box-shadow: 6px 0 15px -4px rgba(0, 0, 0, 0.15), -7px 0 8px -4px rgba(0, 0, 0, 0.15);
+    margin-left: auto;
+    margin-right: auto;
+
+    .section-wrapper {
+        padding: 0.5rem 1.25rem;
+    }
+
+    .w-50per {
+        width: 50%;
+    }
+
+    .program-details-card {
+        background-color: @color-white;
+    }
+
+    .patch-img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .filter-section {
+        margin-bottom: -15px;
+        font-size: 0.75rem;
+    }
+
+    .filter-btn {
+        height: 30px;
+        font-size: 0.75rem;
+        line-height: initial;
+        color: @color-black;
+    }
+
+    .button-active {
+        background-color: @color-seablue;
+    }
+
+    .card-body {
+        padding: 0.25rem !important;
+    }
+
+    .card-img-bg {
+        background-color: #ebeff1;
+    }
+
+    .product-card {
+        height: 420px;
+    }
+
+    .product-title {
+        font-size: 0.75rem;
+    }
+
+    .text-color-blue {
+        color: @color-royalBlue;
+    }
+}
+
+/* Mobile View: 1 column layout until 700 px. */
+@media only screen and (max-width: 700px) {
+    .launch-card-col {
+        width: 100%;
+    }
+
+    .filters-wrapper {
+        width: 100%
+    }
+
+    .product-panel {
+        width: 100%
+    }
+
+    .footer-panel {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Tablet/Laptop View: 2 column layout between 700px and 1024px */
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+    .launch-card-col {
+        width: 50%;
+    }
+
+    .filters-wrapper {
+        width: 33.33%;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .product-panel {
+        width: 66.66%;
+        margin-left: 30px;
+    }
+}
+
+/* Desktop View: 4 column layout between 1024px and 1440px  */
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    .launch-card-col {
+        width: 25%;
+    }
+
+    .filters-wrapper {
+        width: 20%;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .product-panel {
+        width: 80%;
+        margin-left: 30px;
+    }
+}
+
+/* Desktop View: 4 column layout above 1440px */
+@media only screen and (min-width: 1440px) {
+    .launch-card-col {
+        width: 25%;
+    }
+
+    .filters-wrapper {
+        width: 20%;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .product-panel {
+        width: 80%;
+        margin-left: 30px;
+    }
+}
